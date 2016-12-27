@@ -613,6 +613,10 @@ defmodule Timex do
       iex> Timex.from_iso_triplet({2014, 5, 2}) === expected
       true
 
+      iex> expected = Timex.to_date({2003, 12, 29})
+      iex> Timex.from_iso_triplet({2004, 1, 1}) === expected
+      true
+
   """
   @spec from_iso_triplet(Types.iso_triplet) :: Date.t | {:error, term}
   def from_iso_triplet({year, week, weekday})

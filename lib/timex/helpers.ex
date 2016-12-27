@@ -3,7 +3,7 @@ defmodule Timex.Helpers do
   use Timex.Constants
   import Timex.Macros
 
-  def iso_day_to_date_tuple(year, day) when is_year(year) and is_day_of_year(day) do
+  def iso_day_to_date_tuple(year, day) when is_year(year) and is_integer(day) do
     {year, day} = cond do
       day < 1 && :calendar.is_leap_year(year - 1) -> {year - 1, day + 366}
       day < 1                                     -> {year - 1, day + 365}
